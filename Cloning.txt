@@ -1,0 +1,63 @@
+What is the problem?
+
+In open source software we have potential to explore , learn and investigate the projects to gain knowledge about it and also possibly reuse it.
+
+When we use the term reuse , there are two things happening
+1. Source code cloning(Ad-Hoc reuse)	2.Accidential cloning.
+
+In source code cloning the developer is intentionally copying the code in order to save his time and effort.
+But in case of accidential cloning , it is not done purposefully , but due to the architectural challenges , rules to be followed for the libraries , it appears as if it has been reused.
+Later using some tools , we categorize as true vs accidental cloning.
+
+How is it solved in the existing literature? What is the empirical research on that?
+Several case studies have been done investigating code duplication within a single software system .
+ All of these studies have consistently shown that cloning within a software system is of non-trivial size. 
+Typical values of code duplication are in the range of 10 – 15% of source code. 
+While there have been several studies investigating the types of cloning that occurs within a
+ software system, very little work has addressed the issue of copying code across software systems as a software development strategy
+
+ Our study supports the finding that separate projects have very little code cloning between them.
+ Most of the clones that were found in the text editor and window manager case studies were accidental clones, 
+clones that appear not through explicit copy and paste, but as a side effect of using similar libraries and interfaces.
+
+What are the RQs?
+
+How much and what kind of code is reused from one project to a new project in a given domain?
+
+
+What methods/tools they have used to conduct experiment?
+
+Tools:
+1.CCFinder for detection.
+2.Clone Interpretation and Categorization Systems (CLICS) for analysis.
+
+CCFinder uses a string matching technique and it is done by using parametized string matching on the stream of input code and detects across the systems.
+CLICS was used to removes all the false positives and to improve the precision returned by the CCFinder.
+
+Above tools were applied on both the domains.
+
+Clone pairs and clone groups are applied as a part of cloning mechanism.
+
+Clone pair : Two snippets have been found a match using the above tools.
+Clone groups:A set of clones that appear in the same logical region of the code.
+
+High clone pairs and low clone groups is an indication that code snippets matched with different alignments.
+
+
+
+What are the results?
+ We found very little code cloning between software systems, even when they are highly related, as nano and pico, and vim and vi are. 
+In both case studies, we observed a lot of accidental clones, These clones tended to occur when dealing with APIs such as GUI toolkits and libraries.	
+The knowledge reuse through code cloning that we did find does appear to be related to problems in the domain of the software systems.
+Given the results in this paper,  it is clear that cloning behavior within software systems is significant. It is typically reported that 10 – 15% of code is cloned within a software system.
+
+
+• What are the future directions?
+
+The results of these studies can also be used as a form of validation for case studies on cloning within a software system.
+Future work in this area will require more complete investigation of duplication and knowledge reuse in the open source community.
+ A larger study needs to be done to show how applicable these results are across all software domains.
+ Additionally, code reuse is only one form of knowledge reuse.
+ We intend to investigate if any other quantifiable measures of expertise sharing exist,
+ and how they affect open source development.
+

@@ -1,0 +1,64 @@
+                                    Report for Software Reuse
+									
+A Large-Scale Empirical Study on Software Reuse in Mobile Apps:
+  
+  
+  
+  
+ - The number of available products is staggering, with Google Play alone offering 700,000 apps at the end of 2012.
+ 
+  A survey of 352 app developers showed that 
+• 40 percent develop apps outside of their main job
+• 21 percent work on apps part time
+• 39 percent made their living through app development
+
+-Many of these developers are highly educated (for instance, 33 percent had some graduate school experience), but their schooling isn’t necessarily in software engineering.Thus, the survey concluded that app developers “often lack expertise in all the aspects of app development needed to be successful.” 
+
+
+-To understand how, despite a lack of formal training, app developers continue to succeed, we had previously studied the use of proven software engineering practices in 4,323 free (as in “no cost”) Android apps across five categories.
+
+Study Design-
+Software reuse has been analyzed since 1968, when Douglas McIlroy proposed to mass produce software with the help of reusable components.Various types of software reuse exist, such as INHERITANCE, CODE, and FRAMEWORK REUSE, each with its own advantages and disadvantages.
+Here, we study inheritance and code reuse, as well as the special case of framework reuse where one app reuses another entire app.
+To analyze these different forms of reuse, we generated a signature for each Java class of a mobile app, then tracked the signature across all apps. 
+
+Crawling Google Play :-
+
+In 2011, two of the authors crawled the offi cial Google Play app store to obtain two datasets used in this study
+We studied only the free (to download) apps because we required access to the source code or bytecode, which isn’t legally possible for paid apps without actually paying. However, because the Android platform has the largest user base,12 free apps represent 75 percent of all Google Play apps (www.appbrain.com/stats/ free-and-paid-android-applications), and free apps are downloaded more often (www.gartner.com/newsroom/ id/2153215), we believe that our case study space is broad and representative enough to draw valid conclusions.
+Google Play considers 27 different app categories and eight game subcategories. The crawling didn’t fetch two categories (Live Wallpapers and Widgets), and we found two identically named subcategories under Games.table to  show inheritance reuse:-
+
+
+CLASS SIGNATURE EXTRACTION :-
+-We used the Software Bertillonage technique, which compares the interface of Java classes, to analyze the mobile apps for software reuse.
+- We chose this technique instead of more traditional code clone detection because the Google Play app store (like any app store) doesn’t provide access to the source code, only the bytecode. 
+-Similarly, hashing-based techniques on bytecode wouldn’t work because developers could change whitespace, comments, the order of methods, or even parts of the implementation   of methods.
+- Instead, Bertillonage only analyzes the interface of classes (that is, the class name and method prototypes), which can readily be extracted from bytecode.
+
+FIVE STEPS FOR ANALYSIS OF DATA:-
+1. Extract bytecode from the APKs using dex2jar tool  
+
+2. Extract classes and methods along with its parameter types using the Apache BCEL
+ 
+3. Remove obfuscation(omiting unclear classes and resource classes as it’s compiled   	automatically from an XML file describing the GUI)
+
+4. Generate class signatures(A Bertillonage signature consists of the fully qualified class name followed by an alphabetical list of the method prototypes)
+
+5. Compare signatures across JAR archives( Textual comparison of the signatures lets us match classes across JAR archives, and hence, apps)
+
+
+
+CASE STUDY-
+
+
+
+
+
+	
+
+
+
+
+
+
+

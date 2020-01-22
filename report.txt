@@ -1,0 +1,96 @@
+          A Large-Scale Empirical Study on Software Reuse in Mobile Apps
+
+
+• What is the problem?
+
+  Inspite of not having proper formal training in software engineering App developers are exploiting the all typical software reuse benefits ,such as enhanced productivity ,higher quality software  and faster time to market.It isn’t clear whether this successful reuse is due to the quality of mobile platforms, development tools, app stores, or a combination of other factors. 
+
+
+• How is it solved in the existing
+literature? What is the empirical research on that?
+
+-To understand how, despite a lack of formal training, app developers continue to succeed, we had previously studied the use of proven software engineering practices in 4,323 free (as in “no cost”) Android apps across five categories.
+And we found that the practice of software reuse is higher in app developers compared to regular open source projects with 61 percent of the classes on average appearing in two or more apps through inheritance, libraries, or frameworks.
+It is also found that 48 clusters of 217 apps that were identical, often consisting of fake apps cobbled together by unscrupulous app developers from existing apps.
+
+-It is also found that developers-
+1. replace advertisement libraries to steal revenue from the original app developers
+2.add malicious functions to steal information from the app users,etc
+
+
+
+
+
+
+
+
+• What are the RQs?
+RQ1-whether these phenomena mentined above are just specific to the apps in our previous study or to mobile apps in general.
+
+
+
+• What methods/tools they have
+used to conduct experiment?
+We used the extracted signatures to analyze inheritance and code reuse, as well as framework reuse of whole apps.
+CLASS SIGNATURE EXTRACTION :-
+ We have used Software Bertillonage technique which compares interface of Java classes and to analyze the mobile apps for software reuse.
+
+FIVE STEPS FOR ANALYSIS OF DATA:-
+1. Extract bytecode from the APKs using dex2jar tool  
+
+2. Extract classes and methods along with its parameter types using the Apache BCEL
+ 
+3. Remove obfuscation(omiting unclear classes and resource classes as it’s compiled   	automatically from an XML file describing the GUI)
+
+4. Generate class signatures(A Bertillonage signature consists of the fully qualified class name followed by an alphabetical list of the method prototypes)
+
+5. Compare signatures across JAR archives( Textual comparison of the signatures lets us match classes across JAR archives, and hence, apps)
+
+Code  reuse:
+We measure proportion of classes in each  category of classes  that are unique to one app
+to understand degree of code reuse and which classes are reused.
+
+PCSR =1- total numberof unique classsignatures
+         total numberofclass signatures 
+		 
+		 
+A high PCSR value indicates that the reuse of class signatures is high in that category.
+
+ 
+• What are the results?
+
+In Java, inheritance is indicated by the extends keyword—for example, public class com.google.ads.AdView extends android.widget.RelativeLayout. Here, the AdView class reuses via inheritance the RelativeLayout base class that’s part of the android.widget package. Using the package name of the base class, we can identify if the class is part of the Android API platform (http://developer. android.com/reference/packages.html) or is a domain- specific class. Platform base classes also comprise standard Java classes such as java.lang.String or java.net.URL.
+
+-The Activity class in the Android API is the most popular, with approximately 8.4 percent of the (non-java. lang.Object) class signatures inheriting from it. 
+
+-The TwitterResponseImpl class in the twitter4j package is from the twitter4j-core library (http://twitter4j.org), and the SerializerBase class in the org.codehaus.jackson.map.ser package is from the Jackson mapper library (http://jackson.codehaus.org).
+
+-Because it’s no surprise that mobile apps inherit from platform classes (which developers therefore reuse) such as Activity, we also examined the top 10 inherited domain-specific base classes. The ranks of this group, in the global ranking of base classes, ranged from 7 to 26. Among these top 10, we found classes to 
+1. interface with Twitter; 
+2.handle JSON data; 
+3.interpret the Kawa scheme implementation (www. gnu.org/software/kawa/index.html) used by Android App Inventor—an application to create apps by dragging and dropping visual components (http:// appinventor.mit.edu);
+4. interpret JavaScript, HTML5, and CSS3 (used by the PhoneGap framework to create Android apps using Web programming languages [http://phonegap. com/] and by the Rhino project to integrate JavaScript in Android apps [https://developer.mozilla. org/en-US/docs/Rhino]); 
+5.display advertisements (provided by the Adwhirl library; http://code.google.com/p/adwhirl).
+
+--If we compare these findings to prior research on reuse in four open source Java projects,14 we find that roughly 54.53 percent of the classes in a mobile app inherit from a base class (other than java.lang.Object), compared to between 29 and 36 percent on open source Java projects. Although the Java case study considered only four systems compared to the many thousands in our analysis, these findings seem to suggest that mobile app developers make more thorough use of inheritancebased reuse
+
+
+The fact that software reuse, in the form of inheritance, class, and library reuse, is prevalent in mobile apps of the Google Play app store, means that app developers reap all the typical reuse benefits, such as improved productivity, higher-quality software and faster time to market,5,6 although many didn’t receive a formal training in software engineering.
+
+- It isn’t clear whether this successful reuse is due to the quality of mobile platforms, development tools, app stores, or a combination of other factors.
+
+-Possible other factors could be the relatively small size of the mobile app code base and development teams, although in recent work, we’ve found that for these characteristics, mobile apps behave identically to small Unix utility applications.
+
+- In any case, evidence exists that mobile platforms encourage reuse by making frequently reused apps and libraries a part of the mobile platform itself. For example, this is what happened to the JSON data format support on the BlackBerry platform.
+
+- User studies with app developers are needed to understand how they reuse code and whether the way in which they approach reuse is different from developers of nonmobile apps
+
+• What are the future  directions?
+
+Mobile apps also inherit the disadvantages of reuse, such as increased dependencies on the reused classes and a potentially large amount of effort needed to integrate a reused class in the mobile app
+ For example, an app reusing a lowquality library runs a higher risk that bugs or incompatibilities of the library harm its quality and reliability. More research is needed to analyze this negative impact on mobile apps in the long term, as well as to analyze other forms of reuse such as the general case of framework reuse.
+
+
+
+
+
